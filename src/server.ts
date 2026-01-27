@@ -1,0 +1,18 @@
+import mongoose from "mongoose"
+import dotenv from "dotenv"
+import app from "./app"
+
+dotenv.config()
+const PORT = process.env.PORT || "5001"
+const MONGO_URI = process.env.MONGO_URI || "no-mongo_uri"
+
+mongoose.connect(MONGO_URI)
+    .then(() => {
+        console.log("Connected to MongoDB")
+        app.listen(PORT => {
+            console.log("Server is running on ", PORT)
+        })
+    })
+    .catch((err) => {
+        console.log("Error connecting to mongoDB: ", err)
+    })

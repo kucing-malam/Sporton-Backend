@@ -9,10 +9,15 @@ const MONGO_URI = process.env.MONGO_URI || "no-mongo_uri"
 mongoose.connect(MONGO_URI)
     .then(() => {
         console.log("Connected to MongoDB")
-        app.listen(PORT => {
+        app.listen(PORT, () => {
             console.log("Server is running on ", PORT)
         })
-    })
-    .catch((err) => {
+    })    
+    .catch((err) => { 
+        console.log(" \n ")
+        console.log("MONGO_URI: ", MONGO_URI)
+        console.log(" \n ")
         console.log("Error connecting to mongoDB: ", err)
-    })
+        console.log(" \n ")
+    } 
+)  

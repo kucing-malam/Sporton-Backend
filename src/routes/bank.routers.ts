@@ -1,5 +1,5 @@
 import { Router } from "express"
-import { Authenticate } from "../middlewares/auth.middleware"
+import { authenticate } from "../middlewares/auth.middleware"
 import {
     createBank,
     getBanks,
@@ -9,10 +9,10 @@ import {
 } from "../controllers/bank.controllers"
 const router = Router();
 
-router.post('/', Authenticate, createBank)
+router.post('/', authenticate, createBank)
 router.get('/', getBanks)
-router.get('/:id', getBankByID)
-router.put('/:id', Authenticate, updateBankByID)
-router.delete('/:id', Authenticate, deleteBankByID)
+// router.get('/:id', getBankByID)
+router.put('/:id', authenticate, updateBankByID)
+router.delete('/:id', authenticate, deleteBankByID)
 
 export default router

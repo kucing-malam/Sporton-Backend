@@ -7,8 +7,9 @@ export interface AuthRequest extends Request {
     user?: any
 }
 
-export const Authenticate = (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const authenticate = (req: AuthRequest, res: Response, next: NextFunction): void => {
     const token = req.header("Authorization")?.replace("Bearer ", "")
+    console.log("Auth Token: ", token)
     if (!token) {
         res.status(401).json("Authentication is required")
         return

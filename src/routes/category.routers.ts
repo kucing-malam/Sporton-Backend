@@ -1,6 +1,6 @@
 import { Router } from "express"
 import { upload } from "../middlewares/upload.middleware"
-import { Authenticate } from "../middlewares/auth.middleware"
+import { authenticate } from "../middlewares/auth.middleware"
 import {
     createCategory,
     getCategories,
@@ -10,10 +10,10 @@ import {
 } from "../controllers/category.controllers"
 const router = Router();
 
-router.post('/', Authenticate, upload.single("image"), createCategory)
+router.post('/', authenticate, upload.single("image"), createCategory)
 router.get('/', getCategories)
 router.get('/:id', getCategoryByID)
-router.put('/:id', Authenticate, upload.single("image"), updateCategoryByID)
-router.delete('/:id', Authenticate, deleteCategoryByID)
+router.put('/:id', authenticate, upload.single("image"), updateCategoryByID)
+router.delete('/:id', authenticate, deleteCategoryByID)
 
 export default router

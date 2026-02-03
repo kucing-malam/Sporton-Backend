@@ -9,7 +9,7 @@ export interface IBank extends Document {
 const BankSchema: Schema = new Schema({
     accountName: {type: String, require: true},
     accountNumber: {type: String, require: true},
-    bankName: {type: String, require: true},
+    bankName: {type: String, require: true}
 }, {timestamps: true})
 
 export default mongoose.model<IBank>("Bank", BankSchema)

@@ -20,7 +20,7 @@ const ProductSchema: Schema = new Schema({
         require: true,
         ref: "Category"
     },
-    description: { type: String, require: true },
+    description: { type: String, require: true }
 }, { timestamps: true })
 
 export default mongoose.model<IProduct>("Product", ProductSchema)

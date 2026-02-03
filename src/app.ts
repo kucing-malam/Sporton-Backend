@@ -6,7 +6,7 @@ import authRouters from "./routes/auth.routers";
 import bankRouters from "./routes/bank.routers";
 import transactionRouters from "./routes/transaction.routers";
 import productRouters from "./routes/product.routers";
-import { Authenticate } from "./middlewares/auth.middleware";
+import { authenticate } from "./middlewares/auth.middleware";
 
 const app = express()
 
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
     res.send("Sporton Backend API is Running")
 })
 
-app.post("/test-middleware", Authenticate, (req, res) => {
+app.post("/test-middleware", authenticate, (req, res) => {
     res.send("This endpoint use for public tes ting")
 })
 

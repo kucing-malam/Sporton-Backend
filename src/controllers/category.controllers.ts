@@ -18,7 +18,7 @@ export const createCategory = async (req: Request, res: Response): Promise<void>
 export const getCategories = async (req: Request, res: Response): Promise<void> => {
     try {
         const categories = await Category.find().sort({ createdAt: -1 })
-        res.status(201).json(categories)
+        res.status(200).json(categories)
     } catch (error) {
         res.status(500).json({ message: "Error fetching categories" })
     }
@@ -33,7 +33,7 @@ export const getCategoryByID = async (req: Request, res: Response): Promise<void
             })
             return
         }
-        res.status(201).json(category)
+        res.status(200).json(category)
     } catch (error) {
         res.status(500).json({ message: "Error fetching categories" })
     }
@@ -52,7 +52,7 @@ export const updateCategoryByID = async (req: Request, res: Response): Promise<v
             })
             return
         }
-        res.status(201).json(category)
+        res.status(200).json(category)
     } catch (error) {
         res.status(500).json({ message: "Error updateing categories" })
     }

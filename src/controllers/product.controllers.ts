@@ -18,7 +18,7 @@ export const createProduct = async (req: Request, res: Response): Promise<void> 
 export const getProducts = async (req: Request, res: Response): Promise<void> => {
     try {
         const product = await Product.find().populate("category").sort({ createdAt: -1 })
-        res.status(201).json(product)
+        res.status(200).json(product)
     } catch (error) {
         res.status(500).json({ message: "Error fetching product" })
     }
@@ -33,7 +33,7 @@ export const getProductByID = async (req: Request, res: Response): Promise<void>
             })
             return
         }
-        res.status(201).json(product)
+        res.status(200).json(product)
     } catch (error) {
         res.status(500).json({ message: "Error fetching product" })
     }
@@ -52,7 +52,7 @@ export const updateProductByID = async (req: Request, res: Response): Promise<vo
             })
             return
         }
-        res.status(201).json(product)
+        res.status(200).json(product)
     } catch (error) {
         res.status(500).json({ message: "Error updating product" })
     }

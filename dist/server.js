@@ -12,7 +12,7 @@ const MONGO_URI = process.env.MONGO_URI || "no-mongo_uri";
 mongoose_1.default.connect(MONGO_URI)
     .then(() => {
     console.log("Connected to MongoDB");
-    app_1.default.listen(PORT, () => {
+    app_1.default.listen(PORT, "0.0.0.0", () => {
         console.log("Server is running on ", PORT);
     });
 })

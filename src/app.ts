@@ -22,11 +22,11 @@ app.use("/api/transactions", transactionRouters)
 app.use("/api/banks", bankRouters)
 
 app.get("/", (req, res) => {
-    res.send("Sporton Backend API is Running")
+    res.status(200).json("Sporton Backend API is Running")
 })
 
 app.post("/test-middleware", authenticate, (req, res) => {
-    res.send("This endpoint use for public tes ting")
+    res.status(200).json("This endpoint use for public tes ting")
 })
 
 export default app 

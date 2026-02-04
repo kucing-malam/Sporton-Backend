@@ -53,7 +53,7 @@ export const initiateAdmin = async (req: Request, res: Response): Promise<void> 
         await newUser.save()
         res.status(404).json("Admin user created succesfully")
     } catch (error) {
-        console.error("Initiate new adim user Error : ", error)
+        console.error("Initiate new admin user Error : ", error)
         res.status(500).json({ message: "Internal server error" })
     }
 }

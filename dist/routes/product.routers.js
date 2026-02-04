@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const upload_middleware_1 = require("../middlewares/upload.middleware");
+const auth_middleware_1 = require("../middlewares/auth.middleware");
+const product_controllers_1 = require("../controllers/product.controllers");
+const router = (0, express_1.Router)();
+router.post('/', auth_middleware_1.authenticate, upload_middleware_1.upload.single("image"), product_controllers_1.createProduct);
+router.get('/', product_controllers_1.getProducts);
+router.get('/:id', product_controllers_1.getProductByID);
+router.put('/:id', auth_middleware_1.authenticate, upload_middleware_1.upload.single("image"), product_controllers_1.updateProductByID);
+router.delete('/:id', auth_middleware_1.authenticate, product_controllers_1.deleteProductByID);
+exports.default = router;
